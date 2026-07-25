@@ -5,7 +5,7 @@ import { FormEvent, useEffect, useState } from "react";
 type ReceivingReport = {
   id: string;
   report_number: string;
-  customerName: string;
+  customer_name: string;
   rack_reference: string;
   quantity_received: number;
   received_date: string;
@@ -79,7 +79,7 @@ export function ReceivingReports() {
       const response = await fetch("/api/receiving-reports", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify.{
+        body: JSON.stringify({
           ...form,
           quantityReceived: Number(form.quantityReceived),
         }),
