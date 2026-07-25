@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { VoiceCommandCapture } from "@/components/voice-command-capture";
 
 export default function Home() {
@@ -8,9 +10,14 @@ export default function Home() {
           <p className="eyebrow">Caprock Tubular Services</p>
           <h1>Yard operations</h1>
         </div>
-        <div className="operator-status">
-          <span className="status-dot" aria-hidden="true" />
-          Operator station online
+        <div className="topbar-actions">
+          <div className="operator-status">
+            <span className="status-dot" aria-hidden="true" />
+            Operator station online
+          </div>
+          <Link className="secondary-button" href="/receiving-reports">
+            Receiving reports
+          </Link>
         </div>
       </header>
 

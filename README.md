@@ -1,7 +1,7 @@
 # Caprock Tubular Services
 
-Next.js 14 scaffold for oilfield pipe yard inventory, work orders, station
-types, role-based access, and browser voice-command capture.
+Next.js 14 scaffold for oilfield pipe yard inventory, work orders, receiving
+reports, station types, role-based access, and browser voice-command capture.
 
 ## Stack
 
@@ -47,8 +47,11 @@ The voice recorder requires microphone permission and a secure context. Local
 src/
   app/
     api/voice-command/route.ts  Mock speech-to-text and command matching
+    api/receiving-reports/      Create and list receiving reports
+    receiving-reports/          Receiving report entry and log screen
     page.tsx                    Yard operations screen
   components/
+    receiving-reports.tsx       Receiving report form and table
     voice-command-capture.tsx   MediaRecorder client flow
   lib/supabase/
     client.ts                   Browser Supabase client
@@ -65,6 +68,8 @@ Create a Supabase project, fill in `.env.local`, and apply the SQL migration in
 - `profiles` with `admin`, `yard_manager`, and `operator` roles
 - `inventory` for pipe lots, specifications, counts, status, and location
 - `work_orders` for customer jobs, scheduling, assignment, and completion
+- `receiving_reports` for inbound customer pipe, rack references, quantities,
+  receiving dates, notes, and verification status
 - `station_types` for inspection, threading, cleaning, storage, and other yard
   stations
 
