@@ -23,12 +23,12 @@ create index receiving_reports_received_date_idx
 on public.receiving_reports (received_date desc);
 
 create index receiving_reports_customer_name_idx
-on public.receivng_reports (customer_name);
+on public.receiving_reports (customer_name);
 
-alter table public.receivng_reports enable row level security;
+alter table public.receiving_reports enable row level security;
 
 create policy "authenticated users read receiving reports"
-on public.receivng_reports for select
+on public.receiving_reports for select
 to authenticated
 using (true);
 
@@ -47,6 +47,6 @@ using (public.current_user_role() in ('admin', 'yard_manager'))
 with check (public.current_user_role() in ('admin', 'yard_manager'));
 
 create policy "admins delete receiving reports"
-on public.receivng_reports for delete
+on public.receiving_reports for delete
 to authenticated
 using (public.current_user_role() = 'admin');

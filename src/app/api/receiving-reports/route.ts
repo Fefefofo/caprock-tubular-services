@@ -177,7 +177,8 @@ function databaseError(message: string) {
 
 function serverError(error: unknown) {
   console.error("Receiving reports server error:", error);
-  return NextResponse.json(.  { error: "The receiving reports service is not configured." },
-   { status: 500 },
-);
+  return NextResponse.json(
+    { error: "The receiving reports service is not configured." },
+    { status: 500 },
+  );
 }
